@@ -1,0 +1,385 @@
+//
+// Performance Test Engine (Parallel)
+// For Sonolus 0.3.8
+//
+// An engine for testing performance of updateParallel
+// By Burrito
+//
+
+
+
+// #0: Initialization
+
+#0.updateSequential:Execute(
+    Set(LevelMemory *SpawnerIndex 2)
+
+    SetShifted(LevelUI *UIMenu *UIAnchorX Subtract(0.05 AspectRatio))
+    SetShifted(LevelUI *UIMenu *UIAnchorY 0.95)
+    SetShifted(LevelUI *UIMenu *UIPivotX 0)
+    SetShifted(LevelUI *UIMenu *UIPivotY 1)
+    SetShifted(LevelUI *UIMenu *UIWidth 0.15)
+    SetShifted(LevelUI *UIMenu *UIHeight 0.15)
+    SetShifted(LevelUI *UIMenu *UIAlpha 1)
+    SetShifted(LevelUI *UIMenu *UIBackground true)
+
+    SetShifted(LevelUI *UIComboValue *UIAnchorX Subtract(0.25 AspectRatio))
+    SetShifted(LevelUI *UIComboValue *UIAnchorY 0.875)
+    SetShifted(LevelUI *UIComboValue *UIPivotX 0)
+    SetShifted(LevelUI *UIComboValue *UIPivotY 0.5)
+    SetShifted(LevelUI *UIComboValue *UIWidth 0.3)
+    SetShifted(LevelUI *UIComboValue *UIHeight 0.15)
+    SetShifted(LevelUI *UIComboValue *UIHorizontalAlign -1)
+    SetShifted(LevelUI *UIComboValue *UIAlpha 1)
+
+    true
+)
+
+
+
+// #1: FPS Counter
+
+#1.initialize:Set(EntityMemory *CounterTime -1000)
+
+#1.updateParallel:Execute(
+    And(
+        GreaterOr(Subtract(Time CounterTime) 1)
+        Execute(
+            Set(EntityMemory *BarY Subtract(Divide(CounterFrames Subtract(Time CounterTime) 120 0.5) 1))
+            Set(EntityMemory *CounterTime Time)
+            Set(EntityMemory *CounterFrames 0)
+        )
+    )
+
+    Set(EntityMemory *CounterFrames Add(CounterFrames 1))
+
+    Draw(
+        TextureBar
+        1.15 -1
+        1.15 BarY
+        1.25 BarY
+        1.25 -1
+        0
+        1
+    )
+)
+
+
+
+// #2: Spawner
+
+SpawnBread:Spawn(3)
+
+#2.shouldSpawn:Equal(SpawnerIndex Index)
+
+#2.touch:And(
+    TempTouchStarted
+    Execute(
+        Set(EntityMemory *InputState true)
+        Set(EntityInput *Judgment 1)
+        Set(LevelMemory *SpawnerIndex Add(Index 1))
+
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+        SpawnBread
+    )
+)
+
+#2.updateParallel:InputState
+
+
+
+// #3: Bread
+
+#3.initialize:Execute(
+    Set(EntityMemory *X1 Subtract(Random(-1 1) 0.05))
+    Set(EntityMemory *X2 Add(X1 0.1))
+    Set(EntityMemory *TimeOffset Random(0 6.28318))
+)
+
+#3.updateSequential:Execute(
+    Set(EntityMemory *Y Sin(Add(Time TimeOffset)))
+    Draw(
+        TextureBread
+        X1 Subtract(Y 0.05)
+        X1 Add(Y 0.05)
+        X2 Add(Y 0.05)
+        X2 Subtract(Y 0.05)
+        0
+        1
+    )
+)
+
+
+
+// Constant
+
+true:1
+false:0
+
+
+
+// Texture identifiers
+
+TextureBread:1
+TextureBar:3
+
+
+
+// Block identifiers
+
+LevelMemory:0
+LevelData:1
+LevelOption:2
+LevelTransform:3
+LevelBackground:4
+LevelUI:5
+
+EntityInfoArray:10
+EntityDataArray:11
+EntitySharedMemoryArray:12
+
+EntityInfo:20
+EntityMemory:21
+EntityData:22
+EntityInput:23
+EntitySharedMemory:24
+
+TemporaryMemory:100
+TemporaryData:101
+
+
+
+// Level Data Layout
+
+*Time:0
+*DeltaTime:1
+*AspectRatio:2
+*DeviceAudioOffset:3
+*DeviceInputOffset:4
+
+Time:Get(LevelData *Time)
+DeltaTime:Get(LevelData *DeltaTime)
+AspectRatio:Get(LevelData *AspectRatio)
+DeviceAudioOffset:Get(LevelData *DeviceAudioOffset)
+DeviceInputOffset:Get(LevelData *DeviceInputOffset)
+
+
+
+// Level UI Layout
+
+*UIMenu:0
+*UIJudgment:11
+*UIComboValue:22
+*UIComboText:33
+*UIScoreBar:44
+*UIScoreValue:55
+
+*UIAnchorX:0
+*UIAnchorY:1
+*UIPivotX:2
+*UIPivotY:3
+*UIWidth:4
+*UIHeight:5
+*UIRotation:6
+*UIAlpha:7
+*UIHorizontalAlign:8
+*UIVerticalAlign:9
+*UIBackground:10
+
+
+
+// Level Memory Layout
+
+*SpawnerIndex:0
+
+SpawnerIndex:Get(LevelMemory *SpawnerIndex)
+
+
+
+// Entity Info Layout
+
+*Index:0
+*Archetype:1
+*State:2
+
+Index:Get(EntityInfo *Index)
+Archetype:Get(EntityInfo *Archetype)
+State:Get(EntityInfo *State)
+
+
+
+// Entity Input Layout
+
+*Judgment:0
+*Bucket:1
+*BucketValue:2
+
+Judgment:Get(EntityInput *Judgment)
+Bucket:Get(EntityInput *Bucket)
+BucketValue:Get(EntityInput *BucketValue)
+
+
+// Touch Temporary Data Layout
+
+*TempTouchID:0
+*TempTouchStarted:1
+*TempTouchEnded:2
+*TempTouchT:3
+*TempTouchST:4
+*TempTouchX:5
+*TempTouchY:6
+*TempTouchSX:7
+*TempTouchSY:8
+*TempTouchDX:9
+*TempTouchDY:10
+*TempTouchVX:11
+*TempTouchVY:12
+*TempTouchVR:13
+*TempTouchVW:14
+
+TempTouchID:Get(TemporaryData *TempTouchID)
+TempTouchStarted:Get(TemporaryData *TempTouchStarted)
+TempTouchEnded:Get(TemporaryData *TempTouchEnded)
+TempTouchT:Get(TemporaryData *TempTouchT)
+TempTouchST:Get(TemporaryData *TempTouchST)
+TempTouchX:Get(TemporaryData *TempTouchX)
+TempTouchY:Get(TemporaryData *TempTouchY)
+TempTouchSX:Get(TemporaryData *TempTouchSX)
+TempTouchSY:Get(TemporaryData *TempTouchSY)
+TempTouchDX:Get(TemporaryData *TempTouchDX)
+TempTouchDY:Get(TemporaryData *TempTouchDY)
+TempTouchVX:Get(TemporaryData *TempTouchVX)
+TempTouchVY:Get(TemporaryData *TempTouchVY)
+TempTouchVR:Get(TemporaryData *TempTouchVR)
+TempTouchVW:Get(TemporaryData *TempTouchVW)
+
+
+
+// #1 Memory Layout
+
+*CounterTime:0
+*CounterFrames:1
+*BarY:2
+
+CounterTime:Get(EntityMemory *CounterTime)
+CounterFrames:Get(EntityMemory *CounterFrames)
+BarY:Get(EntityMemory *BarY)
+
+
+
+// #2 Memory Layout
+
+*InputState:0
+
+InputState:Get(EntityMemory *InputState)
+
+
+
+// #3 Memory Layout
+
+*X1:0
+*X2:1
+*TimeOffset:2
+*Y:3
+
+X1:Get(EntityMemory *X1)
+X2:Get(EntityMemory *X2)
+TimeOffset:Get(EntityMemory *TimeOffset)
+Y:Get(EntityMemory *Y)

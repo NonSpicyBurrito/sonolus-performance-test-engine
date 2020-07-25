@@ -1,0 +1,23 @@
+{
+    "buckets": [],
+    "entities": [
+        {
+            "archetype": 0
+        },
+        {
+            "archetype": 1
+        }
+    ],
+    "archetypes": [
+        {
+            "script": 0
+        },
+        {
+            "script": 1
+        },
+        {
+            "script": 2,
+            "input": true
+        }
+    ]
+}
