@@ -1,11 +1,12 @@
-import { SArchetype } from 'sonolus.js'
+import { defineArchetypes } from 'sonolus.js'
+import { scripts } from './scripts'
 
-export default [
-    {
-        script: 0,
+export const archetypes = defineArchetypes({
+    main: {
+        script: scripts.mainIndex,
         input: true,
     },
-    {
-        script: 1,
+    bread: {
+        script: scripts.breadIndex,
     },
-] as SArchetype[]
+})

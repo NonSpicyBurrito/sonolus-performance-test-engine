@@ -1,5 +1,5 @@
 import { emptyDirSync, outputFileSync } from 'fs-extra'
-import buildOutput from '.'
+import { buildOutput } from '.'
 import { isParallel } from './isParallel'
 
 const distPath = 'dist'

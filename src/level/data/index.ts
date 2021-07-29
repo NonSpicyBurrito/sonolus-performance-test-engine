@@ -1,9 +1,10 @@
 import { SLevelData } from 'sonolus.js'
+import { archetypes } from '../../engine/data/archetypes'
 
-export default {
+export const levelData: SLevelData = {
     entities: [
         {
-            archetype: 0,
+            archetype: archetypes.mainIndex,
         },
     ],
-} as SLevelData
+}

@@ -1,10 +1,10 @@
 import { SEngineData } from 'sonolus.js'
-import archetypes from './archetypes'
-import buckets from './buckets'
-import scripts from './scripts'
+import { archetypes } from './archetypes'
+import { buckets } from './buckets'
+import { scripts } from './scripts'
 
-export default {
+export const engineData: SEngineData = {
     buckets,
     archetypes,
     scripts,
-} as SEngineData
+}

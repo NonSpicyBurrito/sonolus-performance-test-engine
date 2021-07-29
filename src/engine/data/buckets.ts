@@ -1,3 +1,3 @@
-import { SBucket } from 'sonolus.js'
+import { defineBuckets } from 'sonolus.js'
 
-export default [] as SBucket[]
+export const buckets = defineBuckets({})

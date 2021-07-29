@@ -1,5 +1,6 @@
 import { SEngineConfiguration } from 'sonolus.js'
+import { options } from './options'
 
-export default {
-    options: [],
-} as SEngineConfiguration
+export const engineConfiguration: SEngineConfiguration = {
+    options,
+}
