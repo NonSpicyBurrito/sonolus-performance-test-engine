@@ -10,7 +10,6 @@ import {
     Subtract,
     Time,
 } from 'sonolus.js'
-
 import { isParallel } from '../../../isParallel'
 
 const left = EntityMemory.to<number>(0)
