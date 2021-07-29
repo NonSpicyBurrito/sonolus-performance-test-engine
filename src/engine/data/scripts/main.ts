@@ -11,7 +11,6 @@ import {
     Subtract,
     TouchStarted,
     UIMenu,
-    VerticalAlign,
 } from 'sonolus.js'
 
 const preprocess: Code = UIMenu.set(
@@ -24,7 +23,6 @@ const preprocess: Code = UIMenu.set(
     0,
     1,
     HorizontalAlign.Center,
-    VerticalAlign.Middle,
     true
 )
 
