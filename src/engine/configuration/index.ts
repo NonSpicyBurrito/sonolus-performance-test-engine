@@ -3,4 +3,8 @@ import { options } from './options'
 
 export const engineConfiguration: SEngineConfiguration = {
     options,
+    ui: {
+        primaryMetric: 'arcade',
+        secondaryMetric: 'life',
+    },
 }
