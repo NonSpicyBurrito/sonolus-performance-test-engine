@@ -1,25 +1,21 @@
-import { emptyDirSync, outputFileSync } from 'fs-extra'
+import { outputFileSync } from 'fs-extra'
 import { buildOutput } from '.'
-import { isParallel } from './isParallel'
+import { isParallel } from './is-parallel'
 
 const distPath = 'dist'
 const levelName = isParallel ? 'Parallel' : 'Sequential'
 
-if (isParallel) {
-    emptyDirSync(distPath)
-}
-
 outputFileSync(
-    `${distPath}/${levelName}-EngineConfiguration-${buildOutput.engine.configuration.hash}`,
+    `${distPath}/${levelName}-EngineConfiguration`,
     buildOutput.engine.configuration.buffer
 )
 
 outputFileSync(
-    `${distPath}/${levelName}-EngineData-${buildOutput.engine.data.hash}`,
+    `${distPath}/${levelName}-EngineData`,
     buildOutput.engine.data.buffer
 )
 
 outputFileSync(
-    `${distPath}/${levelName}-LevelData-${buildOutput.level.data.hash}`,
+    `${distPath}/${levelName}-LevelData`,
     buildOutput.level.data.buffer
 )

@@ -1,10 +1,7 @@
-import { SEngineConfiguration } from 'sonolus.js'
 import { options } from './options'
+import { ui } from './ui'
 
-export const engineConfiguration: SEngineConfiguration = {
+export const engineConfiguration = {
     options,
-    ui: {
-        primaryMetric: 'arcade',
-        secondaryMetric: 'life',
-    },
+    ui,
 }

@@ -5,15 +5,15 @@ import {
     EntityMemory,
     HorizontalAlign,
     ScreenAspectRatio,
+    Script,
     Spawn,
-    SScript,
     Subtract,
     TouchStarted,
     UIMenu,
 } from 'sonolus.js'
 import { scripts } from '.'
 
-export function main(): SScript {
+export function main(): Script {
     const preprocess = UIMenu.set(
         Subtract(0.05, ScreenAspectRatio),
         0.95,
@@ -38,11 +38,7 @@ export function main(): SScript {
     ])
 
     return {
-        preprocess: {
-            code: preprocess,
-        },
-        touch: {
-            code: touch,
-        },
+        preprocess,
+        touch,
     }
 }

@@ -6,7 +6,5 @@ export const archetypes = defineArchetypes({
         script: scripts.mainIndex,
         input: true,
     },
-    bread: {
-        script: scripts.breadIndex,
-    },
+    bread: scripts.breadIndex,
 })

@@ -1,17 +1,17 @@
+import { SkinSprite } from 'sonolus-core'
 import {
     Add,
     Draw,
     EntityMemory,
     Random,
+    Script,
     Sin,
-    SkinSprite,
-    SScript,
     Subtract,
     Time,
 } from 'sonolus.js'
-import { isParallel } from '../../../isParallel'
+import { isParallel } from '../../../is-parallel'
 
-export function bread(): SScript {
+export function bread(): Script {
     const left = EntityMemory.to<number>(0)
     const right = EntityMemory.to<number>(1)
     const timeOffset = EntityMemory.to<number>(2)
@@ -26,7 +26,7 @@ export function bread(): SScript {
     const update = [
         yCenter.set(Sin(Add(Time, timeOffset))),
         Draw(
-            SkinSprite.NoteHeadRed,
+            isParallel ? SkinSprite.NoteHeadRed : SkinSprite.NoteHeadGreen,
             left,
             Subtract(yCenter, 0.05),
             left,
@@ -41,11 +41,7 @@ export function bread(): SScript {
     ]
 
     return {
-        initialize: {
-            code: initialize,
-        },
-        [isParallel ? 'updateParallel' : 'updateSequential']: {
-            code: update,
-        },
+        initialize,
+        [isParallel ? 'updateParallel' : 'updateSequential']: update,
     }
 }
