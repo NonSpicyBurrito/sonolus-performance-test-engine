@@ -4,7 +4,7 @@ import { effect } from './effect.js'
 import { particle } from './particle.js'
 import { skin } from './skin.js'
 
-export const data = {
+export const playData = {
     skin,
     effect,
     particle,

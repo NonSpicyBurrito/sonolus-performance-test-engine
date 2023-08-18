@@ -1,5 +1,5 @@
 import { LevelData } from 'sonolus-core'
-import { archetypes } from '../../engine/data/archetypes/index.js'
+import { archetypes } from '../../engine/playData/archetypes/index.js'
 
 export const data: LevelData = {
     bgmOffset: 0,

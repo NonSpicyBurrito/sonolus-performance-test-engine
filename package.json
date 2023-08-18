@@ -5,10 +5,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev-parallel": "sonolus-cli --dev --parallel",
-    "dev-sequential": "sonolus-cli --dev --sequential",
-    "prebuild": "tsc -p . --noEmit && eslint --ext .ts ./src",
-    "build": "sonolus-cli --build --parallel && sonolus-cli --build --sequential"
+    "dev:play-parallel": "sonolus-cli --dev ./play/sonolus-cli.config.parallel.js",
+    "dev:play-sequential": "sonolus-cli --dev ./play/sonolus-cli.config.sequential.js",
+    "prebuild": "tsc -p ./play --noEmit && eslint --ext .ts ./play",
+    "build": "sonolus-cli --build ./play/sonolus-cli.config.parallel.js && sonolus-cli --build ./play/sonolus-cli.config.sequential.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.4.0",

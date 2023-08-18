@@ -1,14 +1,11 @@
 import { writeFileSync } from 'node:fs'
 import { compressSync } from 'sonolus-core'
 
-const mode = process.argv.includes('--parallel')
-    ? 'parallel'
-    : process.argv.includes('--sequential')
-    ? 'sequential'
-    : 'unknown'
+/** @return {import('sonolus.js').SonolusCLIConfig} */
+export const createConfig = (mode) => ({
+    type: 'play',
+    entry: './play/src/index.ts',
 
-/** @type import('sonolus.js').SonolusCLIConfig */
-export default {
     esbuild(options) {
         return {
             ...options,
@@ -21,10 +18,13 @@ export default {
 
     export(artifacts) {
         const outputFile = (name, data) =>
-            writeFileSync(`./dist/${name}-${mode}`, compressSync(data))
+            writeFileSync(
+                this.mode === 'build' ? `./dist/${name}-${mode}` : `./.dev/${name}`,
+                compressSync(data),
+            )
 
         outputFile('EngineConfiguration', artifacts.engine.configuration)
-        outputFile('EngineData', artifacts.engine.data)
+        outputFile('EnginePlayData', artifacts.engine.playData)
         outputFile('LevelData', artifacts.level.data)
     },
-}
+})
