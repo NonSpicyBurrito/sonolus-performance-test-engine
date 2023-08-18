@@ -7,7 +7,7 @@
   "scripts": {
     "dev:play-parallel": "sonolus-cli --dev ./play/sonolus-cli.config.parallel.js",
     "dev:play-sequential": "sonolus-cli --dev ./play/sonolus-cli.config.sequential.js",
-    "prebuild": "tsc -p ./play --noEmit && eslint --ext .ts ./play",
+    "prebuild": "tsc -p ./shared --noEmit && tsc -p ./play --noEmit && eslint --ext .ts ./shared && eslint --ext .ts ./play",
     "build": "sonolus-cli --build ./play/sonolus-cli.config.parallel.js && sonolus-cli --build ./play/sonolus-cli.config.sequential.js"
   },
   "devDependencies": {
