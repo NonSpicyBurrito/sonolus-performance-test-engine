@@ -1,0 +1,7 @@
+**/*.*
+
+!shared/src/**/*.*
+
+!play/src/**/*.*
+
+!tutorial/src/**/*.*
