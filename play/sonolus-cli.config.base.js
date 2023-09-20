@@ -4,7 +4,6 @@ import { compressSync } from 'sonolus-core'
 /** @return {import('sonolus.js').SonolusCLIConfig} */
 export const createConfig = (mode) => ({
     type: 'play',
-    entry: './play/src/index.ts',
 
     esbuild(options) {
         return {
