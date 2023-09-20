@@ -7,5 +7,8 @@
 !play/sonolus-cli.config.js
 !play/src/**/*.*
 
+!preview/sonolus-cli.config.js
+!preview/src/**/*.*
+
 !tutorial/sonolus-cli.config.js
 !tutorial/src/**/*.*

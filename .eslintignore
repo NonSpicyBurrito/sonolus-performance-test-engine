@@ -4,4 +4,6 @@
 
 !play/src/**/*.*
 
+!preview/src/**/*.*
+
 !tutorial/src/**/*.*
