@@ -1,0 +1,11 @@
+**/*.*
+
+!.eslintrc.cjs
+
+!shared/src/**/*.*
+
+!play/sonolus-cli.config.js
+!play/src/**/*.*
+
+!tutorial/sonolus-cli.config.js
+!tutorial/src/**/*.*
