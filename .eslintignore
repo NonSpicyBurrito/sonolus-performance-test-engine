@@ -4,6 +4,8 @@
 
 !play/src/**/*.*
 
+!watch/src/**/*.*
+
 !preview/src/**/*.*
 
 !tutorial/src/**/*.*
