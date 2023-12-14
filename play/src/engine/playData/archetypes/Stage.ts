@@ -27,6 +27,7 @@ export class Stage extends Archetype {
             archetypes.Note.spawn({})
         }
 
+        // eslint-disable-next-line no-restricted-properties
         debug.log((this.count += 100))
     }
 }
