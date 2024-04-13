@@ -1,7 +1,7 @@
 import { writeFileSync } from 'node:fs'
-import { compressSync } from 'sonolus-core'
+import { compressSync } from '@sonolus/core'
 
-/** @return {import('sonolus.js').SonolusCLIConfig} */
+/** @return {import('@sonolus/sonolus.js').SonolusCLIConfig} */
 export const createConfig = (mode) => ({
     type: 'play',
 

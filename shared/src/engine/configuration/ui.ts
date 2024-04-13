@@ -1,4 +1,4 @@
-import { EngineConfigurationUI } from 'sonolus-core'
+import { EngineConfigurationUI } from '@sonolus/core'
 
 export const ui: EngineConfigurationUI = {
     primaryMetric: 'arcade',
@@ -40,13 +40,13 @@ export const ui: EngineConfigurationUI = {
             from: 1,
             to: 1,
             duration: 0,
-            ease: 'None',
+            ease: 'none',
         },
         alpha: {
             from: 1,
             to: 1,
             duration: 0,
-            ease: 'None',
+            ease: 'none',
         },
     },
     comboAnimation: {
@@ -54,13 +54,13 @@ export const ui: EngineConfigurationUI = {
             from: 1,
             to: 1,
             duration: 0,
-            ease: 'None',
+            ease: 'none',
         },
         alpha: {
             from: 1,
             to: 1,
             duration: 0,
-            ease: 'None',
+            ease: 'none',
         },
     },
     judgmentErrorStyle: 'none',
