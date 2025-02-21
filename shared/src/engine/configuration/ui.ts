@@ -64,6 +64,6 @@ export const ui: EngineConfigurationUI = {
         },
     },
     judgmentErrorStyle: 'none',
-    judgmentErrorPlacement: 'both',
+    judgmentErrorPlacement: 'center',
     judgmentErrorMin: 0,
 }
