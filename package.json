@@ -5,25 +5,25 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev:play-parallel": "sonolus-cli --dev ./play/sonolus-cli.config.parallel.js",
-    "dev:play-sequential": "sonolus-cli --dev ./play/sonolus-cli.config.sequential.js",
-    "dev:watch": "sonolus-cli --dev ./watch",
-    "dev:preview": "sonolus-cli --dev ./preview",
-    "dev:tutorial": "sonolus-cli --dev ./tutorial",
+    "dev-play-parallel": "sonolus-cli --dev ./play/sonolus-cli.config.parallel.js",
+    "dev-play-sequential": "sonolus-cli --dev ./play/sonolus-cli.config.sequential.js",
+    "dev-watch": "sonolus-cli --dev ./watch",
+    "dev-preview": "sonolus-cli --dev ./preview",
+    "dev-tutorial": "sonolus-cli --dev ./tutorial",
     "check-type": "tsc -p ./shared --noEmit && tsc -p ./play --noEmit && tsc -p ./watch --noEmit && tsc -p ./preview --noEmit && tsc -p ./tutorial --noEmit",
     "check-lint": "eslint .",
     "check-format": "prettier . --check",
     "build": "sonolus-cli --build ./play/sonolus-cli.config.parallel.js && sonolus-cli --build ./play/sonolus-cli.config.sequential.js && sonolus-cli --build ./watch && sonolus-cli --build ./preview && sonolus-cli --build ./tutorial"
   },
   "devDependencies": {
-    "@eslint/js": "^9.20.0",
-    "@sonolus/core": "~7.12.0",
-    "@sonolus/sonolus.js": "~9.5.4",
-    "eslint": "^9.20.1",
-    "eslint-config-prettier": "^10.0.1",
-    "prettier": "^3.5.1",
-    "prettier-plugin-organize-imports": "^4.1.0",
-    "typescript": "~5.7.3",
-    "typescript-eslint": "^8.24.1"
+    "@eslint/js": "^9.32.0",
+    "@sonolus/core": "~7.14.0",
+    "@sonolus/sonolus.js": "~9.6.0",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.2.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.38.0"
   }
 }
